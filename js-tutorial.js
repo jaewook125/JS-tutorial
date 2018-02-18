@@ -44,3 +44,11 @@ console.log(latitude);
 console.log(inNorthernHemisphere);
 
 //변수지정
+
+const entree = "Enchiladas";
+console.log(entree);
+const price = 12;
+console.log(price);
+//변수지정 2
+entree = "Tacos";
+//error 코드
