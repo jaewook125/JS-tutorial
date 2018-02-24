@@ -35,3 +35,29 @@ else
     // What should we do if the condition is false? Fill in here:
     console.log("not good");
 }
+
+//confirm을 이용한 제어문
+// This is an example of an if / else statement.
+
+if (12 / 4 === "Ari".length) {
+    confirm("Will this run the first block?");
+} else {
+    confirm("Or the second block?");
+}
+
+//비교문 0이여도 True
+if(10%2 === 0) {
+	//(나머지가 0이니 0 === 0 은 진실임)
+    console.log("The first number is even");
+} else {
+    console.log("The first number is odd");
+}
+
+// str 슬라이스
+// Be careful with the substring's letter positions!
+"wonderful day".substring(3,7);
+
+//str 슬라이스 콘솔로그 응용
+console.log("January".substring(0,3));
+console.log("Melbourne is great".substring(0,13));
+console.log("hamburgers".substring(3));
