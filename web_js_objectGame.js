@@ -78,6 +78,10 @@ var multiply = function (square, y) {
     return square(2) * y;
 }
 
+
+
+
+
 //객제지향 상속 함수
 // here we define our method using "this", before we even introduce bob
 var setAge = function (newAge) {
@@ -112,4 +116,147 @@ rectangle.setWidth = function (newWidth){
 // here change the width to 8 and height to 6 using our new methods
 rectangle.setHeight(6);
 rectangle.setWidth(8);
+
+
+
+//this 키워드 사용2
+var square = new Object(); //생성자
+square.sideLength = 6;
+square.calcPerimeter = function() { //선 길이
+  return this.sideLength * 4;
+};
+// help us define an area method here
+square.calcArea = function(){
+  return this.sideLength * this.sideLength // 부피특정
+};
+
+var p = square.calcPerimeter();
+var a = square.calcArea();
+
+
+//
+function Person(name,age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Let's make bob and susan again, using our constructor
+var bob = new Person("Bob Smith", 30);
+var susan = new Person("Susan Jordan", 25);
+// help us make george, whose name is "George Washington" and age is 275ㅍㅁ
+var george = new Person("George Washington", 275);
+
+
+
+//객체 상속
+function Cat(age, color) {
+  this.age = age;
+  this.color = color;
+}
+
+// make a Dog constructor here
+function Dog(Cat){
+
+};
+
+//객체 상속 옵션
+function Person(name,age) {
+  this.name = name;
+  this.age = age;
+  this.species = "Homo Sapiens";
+}
+
+var sally = new Person("Sally Bowles", 39);
+var holden = new Person('Holden Caulfield', 16);
+console.log("sally's species is " + sally.species + " and she is " + sally.name);
+console.log("holden's species is " + holden.species + " and he is " + holden.name);
+
+
+//배열을 이용한 상속 
+ // Our person constructor
+function Person (name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// Now we can make an array of people
+var family = new Array();
+family[0] = new Person("alice", 40);
+family[1] = new Person("bob", 42);
+family[2] = new Person("michelle", 8);
+// add the last family member, "timmy", who is 6 years old
+family[3] = new Person("timmy", 6)
+
+// loop through our new array
+for (var i = 0; i < family.length; i++){ //패밀리 오브젝트 갯수
+    console.log(family[i].name); //이름만 출력
+};
+
+
+
+
+//함수로 객체 전달
+// Our person constructor
+function Person (name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// We can make a function which takes persons as arguments
+// This one computes the difference in ages between two people
+var ageDifference = function(person1, person2) {
+    return person1.age - person2.age;
+}
+
+var alice = new Person("Alice", 30);
+var billy = new Person("Billy", 25);
+
+// get the difference in age between alice and billy using our function
+var diff = ageDifference(alice,billy);
+
+
+
+//나이 비교
+// Our person constructor
+function Person (name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// We can make a function which takes persons as arguments
+// This one computes the difference in ages between two people
+var ageDifference = function(person1, person2) {
+    return person1.age - person2.age;
+};
+
+// Make a new function, olderAge, to return the age of
+// the older of two people
+var olderAge = function(person1, person2){ //객체를 매개변수로 이용
+    if (person1.age > person2.age){
+        return person1.age;
+    } else {
+        return person2.age;
+    }
+};
+
+
+// Let's bring back alice and billy to test our new function
+var alice = new Person("Alice", 30);
+var billy = new Person("Billy", 25);
+
+console.log("The older person is " + olderAge(alice, billy));
+
+
+//원 둘레 구하는 공식
+function Circle (radius) {
+    this.radius = radius;
+    this.area = function () {
+        return Math.PI * this.radius * this.radius;
+        
+    };
+    // define a perimeter method here
+    this.perimeter = function() {
+    	return 2 * Math.PI * this.radius;
+};
+};
 
